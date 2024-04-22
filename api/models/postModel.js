@@ -4,7 +4,7 @@
     {
       caption: {
         type: String,
-        required: true,
+        // required: true,
       },
       image: [
         {

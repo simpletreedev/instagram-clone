@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import makeRequest from "../../services/makeRequest";
 import { GetListFriend } from "../../services/fetch";
 import Suggestion from "../suggestions/Suggestion";
+import Loading from "../loadings/Loading";
 
 const Main = () => {
   const [listUser, setListUser] = useState();
@@ -38,8 +39,18 @@ const Main = () => {
   };
 
   return (
-    <div className="main">
-      {listUser?.length === 0 ? (
+    <div className="main" style={{ height: "100vh" }}>
+      {isLoading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Loading />
+        </div>
+      ) : listUser?.length === 0 ? (
         <div className="main-container">
           <Section />
           <Rightbar />

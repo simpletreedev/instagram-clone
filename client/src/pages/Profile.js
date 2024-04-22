@@ -71,9 +71,9 @@ const Profile = () => {
               <PostCreated posts={data?.bookmarks} typePost="postSaved" />
             )}
             {postTaged && <PostCreated posts={[]} typePost="postTaged" />}
+            <Footer />
           </div>
         )}
-        <Footer />
       </div>
       {openEditProfile && (
         <EditProfile

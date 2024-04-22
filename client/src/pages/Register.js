@@ -90,7 +90,7 @@ const Register = () => {
       <div className="register-container">
         {loading && <Loading />}
         <div className="register-right-top">
-          <h2>Keepstory</h2>
+          <h2>Instagram</h2>
           <p
             style={{
               marginBottom: "20px",

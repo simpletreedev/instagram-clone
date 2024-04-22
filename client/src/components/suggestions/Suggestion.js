@@ -10,7 +10,15 @@ const Suggestion = ({
   handleStarted,
 }) => {
   return (
-    <div className="sg">
+    <div
+      className="sg"
+      style={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       <div className="sg-container">
         <h2>Suggested for you</h2>
         <ul className="sg-list load">

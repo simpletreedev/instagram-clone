@@ -41,6 +41,7 @@ const PostOptions = ({ setOpenPostOptions, ownPost, postId }) => {
   };
 
   const copyUrl = (url) => {
+    console.log(process.env.REACT_APP_CLIENT);
     navigator?.clipboard
       ?.writeText(url)
       .then(() => successMessage("Link copied to clipboard"))
@@ -81,7 +82,7 @@ const PostOptions = ({ setOpenPostOptions, ownPost, postId }) => {
 
           <li
             className="po-item"
-            onClick={() => copyUrl(`${process.env.REACT_APP_API}/p/${postId}`)}
+            onClick={() => copyUrl(`${process.env.REACT_APP_CLIENT}/p/${postId}`)}
           >
             Copy link
           </li>

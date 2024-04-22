@@ -44,53 +44,58 @@ const PostDetails = () => {
             Something went wrongs...
           </p>
         ) : (
-          <div className="pd-main">
-            <PdImgs data={data} />
-            <div className="pd-info">
-              <PdHeader data={data} postId={postId} />
+          <div
+            className="pd-main"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            <div style={{ display: "flex" }}>
+              <PdImgs data={data} />
+              <div className="pd-info">
+                <PdHeader data={data} postId={postId} />
 
-              <div className="pd-list-comments">
-                <PdInfoCm data={data} />
-                {rootComments?.map((item) => (
-                  <Comment
-                    key={item._id}
-                    item={item}
-                    setIsReplying={setIsReplying}
-                    setCommentParent={setCommentParent}
-                    replies={getReplyComments(data?.comments, item._id)}
+                <div className="pd-list-comments">
+                  <PdInfoCm data={data} />
+                  {rootComments?.map((item) => (
+                    <Comment
+                      key={item._id}
+                      item={item}
+                      setIsReplying={setIsReplying}
+                      setCommentParent={setCommentParent}
+                      replies={getReplyComments(data?.comments, item._id)}
+                      postId={data._id}
+                      setContent={setContent}
+                      postImage={data.image[0]}
+                    />
+                  ))}
+                </div>
+
+                <div className="pd-bottom">
+                  <PostActions
                     postId={data._id}
-                    setContent={setContent}
-                    postImage={data.image[0]}
+                    post={data}
+                    isPostDetails={postId}
                   />
-                ))}
-              </div>
+                  <p className="pd-likes">{data.likes.length} likes</p>
+                  <p className="pd-timeago">
+                    {moment(data.createdAt).format("ll")}
+                  </p>
 
-              <div className="pd-bottom">
-                <PostActions
-                  postId={data._id}
-                  post={data}
-                  isPostDetails={postId}
-                />
-                <p className="pd-likes">{data.likes.length} likes</p>
-                <p className="pd-timeago">
-                  {moment(data.createdAt).format("ll")}
-                </p>
-
-                <AddComment
-                  postId={data._id}
-                  isReplying={isReplying}
-                  setIsReplying={setIsReplying}
-                  commentParent={commentParent}
-                  author={data.author?._id}
-                  postImage={data.image[0]}
-                  content={content}
-                  setContent={setContent}
-                />
+                  <AddComment
+                    postId={data._id}
+                    isReplying={isReplying}
+                    setIsReplying={setIsReplying}
+                    commentParent={commentParent}
+                    author={data.author?._id}
+                    postImage={data.image[0]}
+                    content={content}
+                    setContent={setContent}
+                  />
+                </div>
               </div>
             </div>
+            <Footer />
           </div>
         )}
-        <Footer />
       </div>
     </div>
   );

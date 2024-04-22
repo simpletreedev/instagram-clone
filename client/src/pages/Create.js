@@ -13,6 +13,7 @@ import { filterAdjust } from "../components/formCreate/filterData";
 import Caption from "../components/formCreate/Caption";
 import Loading from "../components/loadings/Loading";
 import Jimp from "jimp";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const { currentUser, successMessage, errorMessage, setOpenCreate } =
@@ -28,6 +29,7 @@ const Create = () => {
   const filterImg = useRef(null);
   const [filterOptions, setFilterOptions] = useState(filterAdjust);
   const [filterClass, setFilterClass] = useState("");
+  const navigate = useNavigate();
 
   const mutation = useMutation(
     async (newPost) => {
@@ -40,6 +42,7 @@ const Create = () => {
           successMessage(res.data.message);
           setLoading(false);
           handleCloseOptions(setOpenCreate);
+          navigate("/p/" + res.data.post._id);
         })
         .catch(() => {
           errorMessage("Something went wrong...");

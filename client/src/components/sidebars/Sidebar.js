@@ -95,7 +95,7 @@ const Sidebar = () => {
               alt=""
               className="sidebar-logo-img"
             />
-            {!(openSearch || openNotification) && <h2>Keepstory</h2>}
+            {!(openSearch || openNotification) && <h2>Instagram</h2>}
           </div>
         </Link>
 

@@ -7,7 +7,7 @@ const NotFound = () => {
       <p className="not-found-text">
         The link you followed may be broken, or the page may have been removed.
         <Link to="/">
-          <span className="not-found-span">Go back to Keepstory.</span>
+          <span className="not-found-span">Go back to Instagram.</span>
         </Link>
       </p>
     </div>

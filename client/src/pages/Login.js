@@ -91,7 +91,7 @@ const Login = () => {
         </div>
         <div className="login-right">
           <div className="login-right-top">
-            <h2>Keepstory</h2>
+            <h2>Instagram</h2>
             <form className="form-login" onSubmit={handleLogin}>
               {inputs.map((input, index) => (
                 <div className="form-login-group" key={index}>

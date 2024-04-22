@@ -84,7 +84,7 @@ const Rightbar = () => {
         </div>
 
         <div className="rightbar-foot">
-          <p className="rightbar-copyright">© 2023 KEEPSTORY FROM TUAN</p>
+          <p className="rightbar-copyright">© 2023 INSTAGRAM FROM META</p>
         </div>
       </div>
       {switchAccount && (

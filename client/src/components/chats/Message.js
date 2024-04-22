@@ -100,7 +100,7 @@ const Message = () => {
             {getInfoChat(chatSingle, currentUser).name}
           </p>
           <p className="message-friend-info-username">
-            {getInfoChat(chatSingle, currentUser).username} • Keepstory
+            {getInfoChat(chatSingle, currentUser).username} • Instagram
           </p>
           {chatSingle.groupAdmin?._id === currentUser.id ? (
             <p>You created this group.</p>

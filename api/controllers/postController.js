@@ -58,7 +58,7 @@ const createPost = async (req, res, next) => {
       }
     }
 
-    if (!caption) throw createError.BadRequest();
+    //if (!caption) throw createError.BadRequest();
 
     const newPost = await Post.create({
       caption,
