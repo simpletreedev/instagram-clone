@@ -8,7 +8,7 @@ const morgan = require("morgan");
 const createError = require("http-errors");
 const routes = require("./routes");
 const { Server } = require("socket.io");
-const { PORT, COR_OPTIONS, SOCKET_OPTIONS, CLIENT_URL } = require("./configs");
+const { PORT, COR_OPTIONS, SOCKET_OPTIONS } = require("./configs");
 const { socketHandler } = require("./socket");
 const path = require("path");
 
@@ -23,7 +23,8 @@ app.use(helmet());
 app.use(cors(COR_OPTIONS));
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", CLIENT_URL);
+  // res.header("Access-Control-Allow-Origin", CLIENT_URL);
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
