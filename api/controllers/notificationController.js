@@ -65,10 +65,10 @@ const createLikeNotification = async (sender, receiver, post) => {
   }
 };
 
-const removeLikeNotification = async (sender, receiver, post) => {
+const removeLikeNotification = async (receiver, post) => {
   try {
     await Notification.findOneAndDelete({
-      sender,
+      // sender,
       receiver,
       type: "like",
       post,
@@ -93,14 +93,14 @@ const createCommentNotification = async (sender, receiver, post, comment) => {
   }
 };
 
-const removeCommentNotification = async (sender, receiver, post, comment) => {
+const removeCommentNotification = async (receiver, post) => {
   try {
     await Notification.findOneAndDelete({
-      sender,
+      // sender,
       receiver,
       type: "comment",
       post,
-      comment,
+      // comment,
     });
   } catch (error) {
     throw createError.InternalServerError();
@@ -120,10 +120,10 @@ const createFollowNotification = async (sender, receiver) => {
   }
 };
 
-const removeFollowNotification = async (sender, receiver) => {
+const removeFollowNotification = async (receiver) => {
   try {
     await Notification.findOneAndDelete({
-      sender,
+      // sender,
       receiver,
       type: "follow",
     });

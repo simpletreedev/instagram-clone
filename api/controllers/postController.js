@@ -6,6 +6,8 @@ const createError = require("http-errors");
 const {
   removeLikeNotification,
   createLikeNotification,
+  removeCommentNotification,
+  removeFollowNotification,
 } = require("./notificationController");
 
 // ---------------- GET ALL POSTS ORDER DESCENDING ----------------
@@ -94,6 +96,14 @@ const removePost = async (req, res, next) => {
       user.posts.pull(postTmp);
       await user.save();
     });
+
+    if(postTmp.type == "like"){
+      removeLikeNotification(userId, postTmp._id);
+    } else if (postTmp.type == "comment"){
+      removeCommentNotification(userId, postTmp._id);
+    } else if(postTmp.type == "follow"){
+      removeFollowNotification(userId);
+    }
 
     await Comment.deleteMany({ post: postTmp._id });
 
