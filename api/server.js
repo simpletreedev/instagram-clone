@@ -20,6 +20,7 @@ app.use(morgan("dev"));
 app.use(compression());
 app.use(express.json());
 app.use(helmet());
+app.use(routes());
 app.use(cors(COR_OPTIONS));
 
 // app.use((req, res, next) => {
@@ -39,7 +40,6 @@ app.use(cors(COR_OPTIONS));
 // });
 
 // routes
-app.use(routes());
 
 // middleware
 app.use((req, res, next) => {
