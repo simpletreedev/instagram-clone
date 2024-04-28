@@ -2,6 +2,7 @@ const uploadToCloudinary = require("../helpers/uploader");
 const Comment = require("../models/commentModel");
 const Post = require("../models/postModel");
 const User = require("../models/userModel");
+const Notification = require("../models/notificationModel");
 const createError = require("http-errors");
 const {
   removeLikeNotification,
@@ -97,13 +98,9 @@ const removePost = async (req, res, next) => {
       await user.save();
     });
 
-    if(postTmp.type == "like"){
-      removeLikeNotification(userId, postTmp._id);
-    } else if (postTmp.type == "comment"){
-      removeCommentNotification(userId, postTmp._id);
-    } else if(postTmp.type == "follow"){
-      removeFollowNotification(userId);
-    }
+    await Notification.deleteMany({
+      post: postTmp._id,
+    });
 
     await Comment.deleteMany({ post: postTmp._id });
 

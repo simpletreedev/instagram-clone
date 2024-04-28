@@ -35,6 +35,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!socket.current) {
+      // socket.current = io("https://instagram-clone-2-g6gf.onrender.com");
       socket.current = io("http://localhost:9500");
     }
 

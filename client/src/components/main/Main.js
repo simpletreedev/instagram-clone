@@ -39,7 +39,7 @@ const Main = () => {
   };
 
   return (
-    <div className="main" style={{ height: "100vh" }}>
+    <div className="main">
       {isLoading ? (
         <div
           style={{

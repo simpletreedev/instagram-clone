@@ -42,13 +42,13 @@ const Notification = ({ currentUser }) => {
               className="link"
               to={
                 item.type !== "follow"
-                  ? `/p/${item.post._id}`
-                  : `/u/${item.sender.username}`
+                  ? `/p/${item.post?._id}`
+                  : `/u/${item.sender?.username}`
               }
             >
               <li className="notification-item">
                 <div className="notification-info">
-                  <Link className="link" to={`/u/${item.sender.username}`}>
+                  <Link className="link" to={`/u/${item.sender?.username}`}>
                     <img
                       src={item.sender.avatar}
                       alt=""
@@ -56,14 +56,14 @@ const Notification = ({ currentUser }) => {
                     />
                   </Link>
                   <p className="notification-text">
-                    <Link className="link" to={`/u/${item.sender.username}`}>
-                      <b>{item.sender.username}</b>
+                    <Link className="link" to={`/u/${item.sender?.username}`}>
+                      <b>{item.sender?.username}</b>
                     </Link>{" "}
                     {item.type === "like"
                       ? "liked your photo."
                       : item.type === "comment"
-                      ? `commented : ${item.comment.content.substring(
-                          item.comment.content.split(" ")[0]
+                      ? `commented : ${item.comment?.content.substring(
+                          item.comment?.content.split(" ")[0]
                         )}`
                       : item.type === "follow"
                       ? " started following you"
@@ -75,7 +75,7 @@ const Notification = ({ currentUser }) => {
                 </div>
                 {item.type !== "follow" && (
                   <img
-                    src={item.post.image[0]}
+                    src={item.post?.image[0]}
                     alt=""
                     className="notification-img"
                   />
