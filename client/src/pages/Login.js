@@ -13,8 +13,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState(false);
   const [values, setValues] = useState({
-    email: "",
-    password: "",
+    email: "test@gmail.com",
+    password: "Tuan952003@",
   });
 
   const inputs = [
