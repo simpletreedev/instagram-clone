@@ -12,7 +12,7 @@ const { verifyAccessToken } = require("../middlewares/verifyToken");
 
 const routes = () => {
   router.use("/api/auth", authRoute);
-  router.use(verifyAccessToken);  
+  router.use(verifyAccessToken);
   router.use("/api/posts", postRoute);
   router.use("/api/comments", commentRoute);
   router.use("/api/users", userRoute);
