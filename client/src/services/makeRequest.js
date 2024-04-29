@@ -7,7 +7,7 @@ const makeRequest = axios.create({
     "Access-Control-Allow-Origin": "*",
   },
   // baseURL: "http://localhost:9500/api",
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 export default makeRequest;
