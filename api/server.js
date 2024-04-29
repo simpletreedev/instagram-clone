@@ -20,8 +20,7 @@ app.use(morgan("dev"));
 app.use(compression());
 app.use(express.json());
 app.use(helmet());
-// app.use(cors(COR_OPTIONS));
-app.use(cors());
+app.use(cors(COR_OPTIONS));
 
 app.use((req, res, next) => {
   // res.header("Access-Control-Allow-Origin", CLIENT_URL);

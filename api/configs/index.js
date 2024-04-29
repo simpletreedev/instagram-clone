@@ -1,10 +1,10 @@
 require("dotenv").config();
 
 const COR_OPTIONS = {
-  // origin: process.env.CLIENT_URL,
-  // credentials: true,
+  origin: process.env.CLIENT_URL,
+  credentials: true,
   // origin: "*",
-  // methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
 };
 
 const SOCKET_OPTIONS = {
